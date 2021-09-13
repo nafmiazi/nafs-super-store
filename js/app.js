@@ -10,6 +10,8 @@ const showProducts = (products) => {
   for (const product of allProducts) {
     const image = product.image;
 
+    const ratingStars = stars(product.rating.rate);
+
     // Create div for all products
     const div = document.createElement("div");
     div.classList.add("col");
@@ -21,14 +23,7 @@ const showProducts = (products) => {
         <div class="card-body border-start border-5 border-danger card-bg">
           <h4 class="text-white fw-bold">${product.title}</h4>
           <p class="text-warning"><span class="text-dark fw-bold">Category: </span> ${product.category}</p>
-          <p>
-            <i class="fas fa-star text-warning"></i>
-            <i class="fas fa-star text-warning"></i>
-            <i class="fas fa-star text-warning"></i>
-            <i class="fas fa-star-half-alt text-warning"></i>
-            <i class="far fa-star text-warning"></i>
-            <span class= "text-white">${product.rating.rate}</span> 
-          </p>
+          <p>${ratingStars}</p>
           <p>
             <i class="fas fa-user-check text-warning"></i>
             <span class= "text-white">${product.rating.count}</span> 
@@ -46,6 +41,125 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+const stars = rates =>{
+  if(rates == 5){
+    return selected = `
+      <p>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <span class= "text-white">${rates}</span> 
+      </p>
+    `
+  }
+
+  else if(rates >= 4.5){
+    return selected = `
+      <p>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star-half-alt text-warning"></i>
+        <span class= "text-white">${rates}</span> 
+      </p>
+    `
+  }
+
+  else if(rates >= 4){
+    return selected = `
+      <p>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <span class= "text-white">${rates}</span> 
+      </p>
+    `
+  }
+
+  else if(rates >= 3.5){
+    return selected = `
+      <p>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star-half-alt text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <span class= "text-white">${rates}</span> 
+      </p>
+    `
+  }
+
+  else if(rates >= 3){
+    return selected = `
+      <p>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <span class= "text-white">${rates}</span> 
+      </p>
+    `
+  }
+
+  else if(rates >= 2.5){
+    return selected = `
+      <p>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star-half-alt text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <span class= "text-white">${rates}</span> 
+      </p>
+    `
+  }
+
+  else if(rates >= 2){
+    return selected = `
+      <p>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <span class= "text-white">${rates}</span> 
+      </p>
+    `
+  }
+
+  else if(rates >= 1.5){
+    return selected = `
+      <p>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star-half-alt text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <span class= "text-white">${rates}</span> 
+      </p>
+    `
+  }
+
+  else if(rates >= 1){
+    return selected = `
+      <p>
+        <i class="fas fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <i class="far fa-star text-warning"></i>
+        <span class= "text-white">${rates}</span> 
+      </p>
+    `
+  }
+}
 
 // Add to card button function
 let count = 0;
