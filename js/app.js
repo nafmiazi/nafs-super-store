@@ -10,6 +10,7 @@ const showProducts = (products) => {
   for (const product of allProducts) {
     const image = product.image;
 
+    // Calling stars function
     const ratingStars = stars(product.rating.rate);
 
     // Create div for all products
@@ -42,6 +43,7 @@ const showProducts = (products) => {
   }
 };
 
+// Function for calculating dynamic stars
 const stars = rates =>{
   if(rates == 5){
     return selected = `
