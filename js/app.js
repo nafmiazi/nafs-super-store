@@ -6,14 +6,18 @@ const loadProducts = () => {
 // show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
+
   for (const product of allProducts) {
     const image = product.image;
+
+    // Create div for all products
     const div = document.createElement("div");
-    // div.classList.add("product");
     div.classList.add("col");
+
+    // Add all products to the div
     div.innerHTML = `
       <div class="card h-100 shadow border-0 product-card">
-        <img src="${image}" class="card-img-top p-5 border-end border-5 border-primary" height='300px' alt="...">
+        <img src="${image}" class="card-img-top p-5 border-end border-5 border-primary" height='350px' alt="...">
         <div class="card-body border-start border-5 border-danger card-bg">
           <h4 class="text-white fw-bold">${product.title}</h4>
           <p class="text-warning"><span class="text-dark fw-bold">Category: </span> ${product.category}</p>
@@ -37,27 +41,38 @@ const showProducts = (products) => {
         </div>
       </div> 
       `;
+    
+    // Append div  
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+// Add to card button function
 let count = 0;
 const addToCart = (id, price) => {
+
+  // count total added products
   count = count + 1;
   updatePrice("price", price);
 
+  // Tax calculation function
   updateTaxAndCharge();
   
+  // Total calculation function
   updateTotal();
+
+  // Add total added products in UI
   document.getElementById("total-Products").innerText = count;
 };
 
+// Get input value function
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
   return converted;
 };
 
-// main price update function
+// Main price update function
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
@@ -65,12 +80,12 @@ const updatePrice = (id, value) => {
   document.getElementById(id).innerText = total.toFixed(2);
 };
 
-// set innerText function
+// Set innerText function
 const setInnerText = (id, value) => {
   document.getElementById(id).innerText = value.toFixed(2);
 };
 
-// update delivery charge and total Tax
+// Update delivery charge and total Tax
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
   if (priceConverted > 200) {
@@ -87,7 +102,7 @@ const updateTaxAndCharge = () => {
   }
 };
 
-//grandTotal update function
+//GrandTotal update function
 const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
