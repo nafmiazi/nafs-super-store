@@ -5,25 +5,37 @@ const loadProducts = () => {
 
 // show all product in UI 
 const showProducts = (products) => {
-  console.log(products);
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
     const div = document.createElement("div");
-    div.classList.add("product");
+    // div.classList.add("product");
+    div.classList.add("col");
     div.innerHTML = `
-      <div class="single-product">
-        <div>
-          <img class="product-image" src=${image}></img>
+      <div class="card h-100 shadow border-0 product-card">
+        <img src="${image}" class="card-img-top p-5 border-end border-5 border-primary" height='300px' alt="...">
+        <div class="card-body border-start border-5 border-danger card-bg">
+          <h4 class="text-white fw-bold">${product.title}</h4>
+          <p class="text-warning"><span class="text-dark fw-bold">Category: </span> ${product.category}</p>
+          <p>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star-half-alt text-warning"></i>
+            <i class="far fa-star text-warning"></i>
+            <span class= "text-white">${product.rating.rate}</span> 
+          </p>
+          <p>
+            <i class="fas fa-user-check text-warning"></i>
+            <span class= "text-white">${product.rating.count}</span> 
+          </p>
+          <h3 class="text-white"><span class= "fw-bold">Price: </span>$ ${product.price}</h2>
         </div>
-        <h3>${product.title}</h3>
-        <p>Category: ${product.category}</p>
-        <p>Rating: ${product.rating.rate} <i class="fas fa-star"></i></p>
-        <p>Total Rating Count: ${product.rating.count} <i class="fas fa-user-plus"></i></p>
-        <h2>Price: $ ${product.price}</h2>
-        <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-        <button id="details-btn" class="btn btn-danger">Details</button>
-      </div>
+        <div class="card-footer bg-dark">
+          <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-primary">Add to cart</button>
+          <button id="details-btn" class="btn btn-warning">Details</button>
+        </div>
+      </div> 
       `;
     document.getElementById("all-products").appendChild(div);
   }

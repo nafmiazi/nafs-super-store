@@ -1,6 +1,10 @@
 body {
   overflow-x: hidden;
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: 'Poppins', sans-serif;
+}
+header span{
+  color: #7952b3;
 }
 .search-field {
   border: none;
@@ -26,15 +30,19 @@ body {
   border-radius: 5px;
   margin-left: 20px;
 }
-#all-products {
+/* #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* border: 1px solid black; */
+  border: 1px solid black;
   text-align: center;
   width: 100%;
   margin: auto;
   align-items: center;
   justify-content: center;
+} */
+
+.card-bg{
+  background-color: #7952b3;
 }
 .single-product {
   padding: 10px;
@@ -52,6 +60,8 @@ body {
 .cart {
   width: 350px;
   /* border: 1px solid green; */
+  background-color: white;
+  /* color: white; */
   padding: 10px;
   box-shadow: 10px 10px 20px gray;
   border-radius: 5px;
