@@ -32,8 +32,8 @@ const showProducts = (products) => {
           <h3 class="text-white"><span class= "fw-bold">Price: </span>$ ${product.price}</h2>
         </div>
         <div class="card-footer bg-dark">
-          <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-primary">Add to cart</button>
-          <button id="details-btn" class="btn btn-warning">Details</button>
+          <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-primary"><i class="fab fa-opencart"></i> Add to cart</button>
+          <button id="details-btn" class="btn btn-warning"><i class="fas fa-info-circle"></i> Details</button>
         </div>
       </div> 
       `;
